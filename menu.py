@@ -17,7 +17,7 @@ print(msg)
 
 passwd = getpass.getpass(" Enter Your Password : ")
 
-if passwd != "group7":
+if passwd != "menu":
 	print("password is Incorrect...")
 	exit()
 
