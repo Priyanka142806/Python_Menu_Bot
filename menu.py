@@ -6,7 +6,7 @@ import subprocess as sp
 os.system("clear")
 #design
 os.system("tput setaf 4")
-title = pyfiglet.figlet_format("GROUP-7.1", font = "epic" )
+title = pyfiglet.figlet_format("Hacktober", font = "epic" )
 print(title)
 os.system("tput setaf 2")
 msg = pyfiglet.figlet_format("Welcome You", font = "digital" )
@@ -17,12 +17,12 @@ print(msg)
 
 passwd = getpass.getpass(" Enter Your Password : ")
 
-if passwd != "group7":
-	print("password is Incorrect...")
+if passwd != "hacktober":
+	print("Your password is invalid. Please try again")
 	exit()
 
 
-where = input(" Where you want to run this menu ? (local/remote) : ")
+where = input("Where you want to run this menu ? (local/remote) : ")
 print(where)
 
 
@@ -46,12 +46,13 @@ while True:
 	print("\t\t\t Menu Bar")
 	os.system("tput setaf 7")
 	print("\t\t-----------------------")
-	msg = "press 0 : Linux\n" \
-	      "Press 1 : Hadoop\n" \
-	      "Press 2 : Docker\n" \
-	      "Press 3 : Web Server\n" \
-	      "Press 4 : AWS\n" \
-	      "Press 5 : Exit\n" 
+	msg = "press 0 : Linux Terminal Commands\n" \
+		  "press 1 : Open Applications in Windows\n" \
+	      "Press 2 : Hadoop\n" \
+	      "Press 3 : Docker\n" \
+	      "Press 4 : Web Server\n" \
+	      "Press 5 : AWS\n" \
+	      "Press 6 : Exit\n" 
 	print_msg_box(msg=msg, indent=2, title='All Services') 
 
 	if where == "local":
@@ -70,8 +71,9 @@ while True:
 				     "Press 5 : Check Storage details \n" \
 				     "press 6 : To Clear Cache\n" \
 			       	 "press 7 : To Transfer File to Other Linux System\n" \
-				     "press 8 : Go to Last Menu\n" \
-				     "press 9 : To Exit" 
+				     "press 8 : Query any command details\n" \
+				     "press 9 : Go to Last Menu\n" \
+				     "press 10 : To Exit" 
 				print_msg_box(msg=msg, indent=2, title='Linux Command:') 
 				os.system("tput setaf 4")
 				ch=input("choose your option : ")
@@ -102,15 +104,72 @@ while True:
 					dest = input("Enter destination folder path where you want to copy : ")
 					output = getpass.getstatusoutput("scp {} {}@{}:{}".format(src, user,ip,dest))
 				elif int(ch) == 8:
-					break
+					cmd_name = input("Enter Command Name: ")
+					os.system(f"man {cmd_name}")
 				elif int(ch) == 9:
+					break
+				elif int(ch) == 10:
+					exit()
+
+				else:
+					print("Incorrect Input")
+				input("\nEnter To Continue...")
+		if int(ch) == 1:
+			while True:
+				os.system("clear")
+				os.system("tput setaf 2")
+				msg ="Press 1 : Check Date\n" \
+				     "Press 2 : Check Calender\n" \
+				     "Press 3 : Check your IP \n" \
+				     "Press 4 : Check RAM Status \n" \
+				     "Press 5 : Check Storage details \n" \
+				     "press 6 : To Clear Cache\n" \
+			       	 "press 7 : To Transfer File to Other Linux System\n" \
+				     "press 8 : Query any command details\n" \
+				     "press 9 : Go to Last Menu\n" \
+				     "press 10 : To Exit" 
+				print_msg_box(msg=msg, indent=2, title='Linux Command:') 
+				os.system("tput setaf 4")
+				ch=input("choose your option : ")
+				os.system("tput setaf 3")
+				print(ch)
+				if int(ch) == 0:
+					exit()
+				elif int(ch) == 1:
+					os.system("date")
+
+
+				elif int(ch) == 2:
+					os.system("cal")
+
+				elif int(ch) == 3:
+					os.system("ifconfig")
+
+				elif int(ch) == 4:
+					os.system("free -m")
+				elif int(ch) == 5:
+					os.system("df -h")
+				elif int(ch) == 6:
+					os.system("echo 3 > /proc/sys/vm/drop_caches")
+				elif int(ch) == 7:
+					ip = input("Enter IP of target system : ")
+					user = input("Enter username : ")
+					src = input("Enter your source file path : ")
+					dest = input("Enter destination folder path where you want to copy : ")
+					output = getpass.getstatusoutput("scp {} {}@{}:{}".format(src, user,ip,dest))
+				elif int(ch) == 8:
+					cmd_name = input("Enter Command Name: ")
+					os.system(f"man {cmd_name}")
+				elif int(ch) == 9:
+					break
+				elif int(ch) == 10:
 					exit()
 
 				else:
 					print("Incorrect Input")
 				input("\nEnter To Continue...")
 
-		elif int(ch) == 1:
+		elif int(ch) == 2:
 			while True:
 				os.system("clear")
 				os.system("tput setaf 4")
@@ -255,7 +314,7 @@ while True:
 						#docker
 
 
-		elif int(ch) == 2:
+		elif int(ch) == 3:
 			while True:
 				os.system("clear")
 				os.system("tput setaf 2")
@@ -325,7 +384,7 @@ while True:
 					print("Incorrect Number")
 				input("\nEnter To Continue...")
 
-		elif int(ch) == 3:
+		elif int(ch) == 4:
 			while True:
 				os.system("clear")
 				os.system("tput setaf 2")
@@ -371,7 +430,7 @@ while True:
 					print("Incorrect Number")
 				input("\ncontinue...")
 
-		elif int(ch) == 4:
+		elif int(ch) == 5:
 			while True:
 				os.system("clear")
 				os.system("tput setaf 2")
